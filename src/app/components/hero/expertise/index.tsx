@@ -16,6 +16,9 @@ export const Expertise = () => {
           'Cloud Engineer',
           'DevOps Engineer',
         ]}
+        fontSize={30}
+        color=''
+        height={50}
       />
     </CardWrapper>
   );

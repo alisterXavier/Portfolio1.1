@@ -13,7 +13,7 @@
     "@gsap/react": "^2.1.1",
     "@nextui-org/react": "^2.4.2",
     "clsx": "^2.1.1",
-    "componentopia": "^1.0.3",
+    "componentopia": "^1.0.5",
     "framer-motion": "^11.2.11",
     "gsap": "^3.12.5",
     "next": "14.2.3",

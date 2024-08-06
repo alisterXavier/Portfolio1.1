@@ -1,8 +1,7 @@
 'use client';
-import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { mergeClassNames } from '../classNames';
 
 export const executeMainPageExitAnimation = (
