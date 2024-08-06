@@ -1,6 +1,5 @@
 import { BsArrowUpRight } from 'react-icons/bs';
 import { CardWrapper } from '..';
-import { motion } from 'framer-motion';
 import { useGSAP } from '@gsap/react';
 import { useRef } from 'react';
 import gsap from 'gsap';

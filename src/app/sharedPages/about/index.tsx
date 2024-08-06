@@ -3,7 +3,7 @@ import { useCardContext } from '@/app/contexts';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { ImCross } from 'react-icons/im';
-import { Marquee, StaggerText } from '../../components/animation';
+import { Marquee, StaggerText } from 'componentopia';
 import { handleClick } from '../utils';
 
 const About = () => {

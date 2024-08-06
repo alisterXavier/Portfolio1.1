@@ -1,4 +1,4 @@
-import { StaggerText } from '../../animation';
+import { StaggerText } from 'componentopia';
 import { CardWrapper } from '..';
 
 export const About = (): JSX.Element => {

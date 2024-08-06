@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
-import { StaggerText } from '../../../components/animation';
+import { StaggerText } from 'componentopia';
 
 export type ProjectType = {
   title: string;

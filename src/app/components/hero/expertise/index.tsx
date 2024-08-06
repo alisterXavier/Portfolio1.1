@@ -1,5 +1,5 @@
 import { CardWrapper } from '..';
-import { TextLoopVertical } from '../../animation';
+import { TextLoopVertical } from 'componentopia';
 
 export const Expertise = () => {
   return (

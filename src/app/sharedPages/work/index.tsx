@@ -7,8 +7,8 @@ import { useRouter } from 'next/navigation';
 import { ReactElement } from 'react';
 import { ImCross } from 'react-icons/im';
 import { mergeClassNames } from '../../components';
-import { Marquee, StaggerText } from '../../components/animation';
 import { handleClick } from '../utils';
+import { Marquee, StaggerText } from 'componentopia';
 
 type CompanyType = {
   image: ReactElement;

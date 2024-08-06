@@ -12,6 +12,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { useEffect } from 'react';
 import { CardProvider, useCardContext } from './contexts';
 import './globals.css';
+import Head from 'next/head';
 
 gsap.registerPlugin(
   ScrollTrigger,
@@ -32,6 +33,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <title>Alister Sequeira</title>
+      </Head>
       <body className={'bg-default-bg'}>
         <CardProvider>
           <Layout
