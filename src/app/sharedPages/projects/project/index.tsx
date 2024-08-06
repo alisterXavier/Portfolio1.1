@@ -4,10 +4,19 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
-import projects from '../../../../../public/assets/data/projects.json';
 import { StaggerText } from '../../../components/animation';
 
-const Project = ({ project }: { project: (typeof projects)[0] }) => {
+export type ProjectType = {
+  title: string;
+  stack: string[];
+  desc: string;
+  git_link: string;
+  app_link?: string;
+  completed: boolean;
+  img: string[];
+};
+
+const Project = ({ project }: { project: ProjectType }) => {
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.fromTo(

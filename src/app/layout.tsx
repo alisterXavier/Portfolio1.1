@@ -46,12 +46,6 @@ export default function RootLayout({
   );
 }
 
-export const opacity = {
-  exit: {
-    opacity: 0,
-  },
-};
-
 const Layout = ({
   props,
 }: {

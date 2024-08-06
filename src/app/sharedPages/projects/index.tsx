@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
 import projects from '../../../../public/assets/data/projects.json';
 import { useCardContext } from '../../contexts';
-import Project from './[id]';
+import Project, { ProjectType } from './project';
 
 function calculateIntersection(rec1: DOMRect, rec2: DOMRect) {
   const xIntersection = Math.max(
@@ -29,9 +29,7 @@ const Projects = () => {
   const router = useRouter();
   const ref = useRef<HTMLDivElement | null>(null);
   const targetRef = useRef<HTMLDivElement | null>(null);
-  const [toggleProject, setToggleProject] = useState<
-    (typeof projects)[0] | null
-  >(null);
+  const [toggleProject, setToggleProject] = useState<ProjectType | null>(null);
   function onDragFunctions(
     target: HTMLDivElement,
     projectImages: NodeListOf<Element>,
@@ -140,7 +138,7 @@ const Projects = () => {
     return { onDragEnd, startAnimation, releaseAnimation };
   }
 
-  function toggleProjectModal(item: (typeof projects)[0]) {
+  function toggleProjectModal(item: ProjectType) {
     setToggleProject(item);
   }
 
