@@ -1,0 +1,5 @@
+export {default as About} from './about'
+export {default as Projects} from './projects'
+export {default as Project} from './projects/[id]'
+export {default as Work} from './work'
+export {default as Certificates} from './certificates'

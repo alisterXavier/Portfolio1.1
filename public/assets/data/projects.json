@@ -1,0 +1,234 @@
+[
+  {
+    "title": "E-commerce App",
+    "stack": [
+      "Next.js",
+      "Redux",
+      "JavaScript",
+      "Typescript",
+      "Tailwind",
+      "Express.js",
+      "Docker",
+      "Supabase",
+      "OpenApi",
+      "DigitalOcean",
+      "CircleCi"
+    ],
+    "desc": " A robust platform designed to streamline online selling, offering a reliable and scalable solution for businesses to manage their digital storefronts. It features intuitive navigation, secure payment processing, and a responsive design to enhance user experience and maximize conversion rates.",
+    "git_link": "https://github.com/alisterXavier/PAO-ecommerce",
+    "completed": false,
+    "img": [
+      "/assets/Project-images/PAO/app_1.png",
+      "/assets/Project-images/PAO/app_2.png",
+      "/assets/Project-images/PAO/app_3.png",
+      "/assets/Project-images/PAO/app_4.png"
+    ]
+  },
+  {
+    "img": [
+      "/assets/Project-images/arcade-asylum/app_1.png",
+      "/assets/Project-images/arcade-asylum/app_2.png",
+      "/assets/Project-images/arcade-asylum/app_3.png",
+      "/assets/Project-images/arcade-asylum/app_4.png"
+    ],
+    "title": "Arcade Asylum",
+    "stack": ["Firebase", "Express.js", "Vue.js", "Pinia", "JavaScript", "Css"],
+    "desc": "This secure and user-friendly classic game store caters specifically to gaming enthusiasts, providing a diverse selection of games and a seamless checkout experience. It emphasizes community engagement through forums and reviews, fostering a vibrant community around retro gaming culture.",
+    "git_link": "https://github.com/alisterXavier/ArcadeAsylum",
+    "app_link": "https://arcade-asylum.vercel.app/",
+    "completed": true
+  },
+  {
+    "img": [
+      "/assets/Project-images/e-commerce/app_1.png",
+      "/assets/Project-images/e-commerce/app_2.png",
+      "/assets/Project-images/e-commerce/app_3.png",
+      "/assets/Project-images/e-commerce/app_4.png",
+      "/assets/Project-images/e-commerce/app_5.png"
+    ],
+    "title": "e-commerce App",
+    "stack": ["React.js", "JavaScript", "Css"],
+    "desc": "Designed with simplicity in mind, this e-commerce application provides essential features for online shopping. It includes product listings, a shopping cart, and checkout functionality, ensuring a straightforward and efficient shopping experience for users.",
+    "git_link": "https://github.com/alisterXavier/e-commerce",
+    "app_link": "http://e-commerce-dremanic.vercel.app/",
+    "completed": true
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/BlaaApp2.0/app_1.png",
+      "/assets/Project-images/BlaaApp2.0/app_2.png",
+      "/assets/Project-images/BlaaApp2.0/app_3.png",
+      "/assets/Project-images/BlaaApp2.0/app_4.png",
+      "/assets/Project-images/BlaaApp2.0/app_5.png",
+      "/assets/Project-images/BlaaApp2.0/app_6.png",
+      "/assets/Project-images/BlaaApp2.0/app_7.png",
+      "/assets/Project-images/BlaaApp2.0/app_8.png"
+    ],
+    "title": "Social Media App 2.0",
+    "stack": [
+      "Firebase",
+      "Express.js",
+      "React.js",
+      "Redux",
+      "TypeScript",
+      "Css"
+    ],
+    "desc": "A next-generation social media platform that enhances user connectivity and interaction through real-time updates and personalized content feeds. It prioritizes user engagement with features like group discussions, event management, and multimedia sharing, creating a dynamic and immersive social networking environment.",
+    "git_link": "https://github.com/alisterXavier/BlaaApp2.0",
+    "app_link": "https://blaa-app-2-0.vercel.app/",
+    "completed": true
+  },
+  {
+    "img": [
+      "/assets/Project-images/BlaaApp/app_1.png",
+      "/assets/Project-images/BlaaApp/app_2.png",
+      "/assets/Project-images/BlaaApp/app_3.png",
+      "/assets/Project-images/BlaaApp/app_4.png",
+      "/assets/Project-images/BlaaApp/app_5.png",
+      "/assets/Project-images/BlaaApp/app_6.png",
+      "/assets/Project-images/BlaaApp/app_7.png"
+    ],
+    "title": "Social Media App",
+    "stack": [
+      "MongoDB",
+      "Express.js",
+      "React.js",
+      "JavaScript",
+      "Node.js",
+      "Css"
+    ],
+    "desc": "This comprehensive social media application supports a wide range of functionalities, including user profiles, content sharing, and real-time messaging. It aims to foster meaningful connections between users through personalized content recommendations and community-driven features.",
+    "git_link": "https://github.com/alisterXavier/blaa-app",
+    "completed": true
+  },
+
+  {
+    "title": "Aegis",
+    "img": [],
+    "stack": ["Next.js", "Typescript", "Tailwind", "MongoDB"],
+    "desc": "A user-friendly tool for managing SSL certificates, Aegis simplifies the complex task of securing web servers. It automates certificate creation, renewal, and installation processes, providing administrators with a centralized dashboard for monitoring and managing their SSL configurations.",
+    "git_link": "https://github.com/alisterXavier/aegis",
+    "completed": false
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/to-infinity-and-beyond/app_1.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_2.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_3.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_4.png"
+    ],
+    "title": "To infinity and beyond",
+    "desc": "Immerse yourself in the wonders of space with this interactive web app that showcases 3D models of celestial bodies. Explore planets, moons, and stars with detailed visualizations and educational insights, making astronomy accessible and engaging for users of all ages.",
+    "stack": ["Next.js", "JavaScript", "Three.js", "Css"],
+    "git_link": "https://github.com/alisterXavier/To-infinity-and-beyond",
+    "app_link": "https://to-infinity-and-beyond.vercel.app/",
+    "completed": true
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/music-downloader/app_1.png",
+      "/assets/Project-images/music-downloader/app_2.png"
+    ],
+    "title": "Music Downloader",
+    "stack": ["Next.js", "TypeScript", "Css"],
+    "desc": "Enhancing the music discovery experience, this application allows users to search, browse, and download their favorite tracks seamlessly. It leverages efficient data fetching and intuitive design to provide a hassle-free music exploration journey.",
+    "git_link": "https://github.com/alisterXavier/Music-downloader",
+    "app_link": "https://music-downloader-three.vercel.app/",
+    "completed": true
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/Crypto/app_1.png",
+      "/assets/Project-images/Crypto/app_2.png",
+      "/assets/Project-images/Crypto/app_3.png",
+      "/assets/Project-images/Crypto/app_4.png"
+    ],
+    "title": "Cryptocurrency Platform",
+    "stack": ["Next.js", "JavaScript", "Css", "Coinranking Api"],
+    "desc": "Tailored for cryptocurrency enthusiasts, this platform offers real-time market data and trading capabilities. It provides users with insights into digital assets, facilitating informed decision-making and offering a user-friendly interface for trading and portfolio management.",
+    "git_link": "https://github.com/alisterXavier/Crypto-Curr",
+    "app_link": "https://crypto-curr-eta.vercel.app/components/swap",
+    "completed": true
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/netflix/app_1.png",
+      "/assets/Project-images/netflix/app_2.png",
+      "/assets/Project-images/netflix/app_3.png",
+      "/assets/Project-images/netflix/app_4.png",
+      "/assets/Project-images/netflix/app_5.png",
+      "/assets/Project-images/netflix/app_6.png",
+      "/assets/Project-images/netflix/app_7.png",
+      "/assets/Project-images/netflix/app_8.png",
+      "/assets/Project-images/netflix/app_9.png"
+    ],
+    "title": "Netflix Clone",
+    "stack": ["React.js", "JavaScript", "Express.js", "Firebase", "Css"],
+    "desc": "A replica of the popular streaming service, this clone offers a familiar user interface with curated content recommendations and a seamless playback experience. It integrates modern streaming technologies to deliver high-quality video content to users worldwide.",
+    "git_link": "https://github.com/alisterXavier/NetflixClone",
+    "app_link": "https://netflix-clone-qwerty.vercel.app/",
+    "completed": true
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/batman/app_1.png",
+      "/assets/Project-images/batman/app_2.png",
+      "/assets/Project-images/batman/app_3.png",
+      "/assets/Project-images/batman/app_4.png",
+      "/assets/Project-images/batman/app_5.png"
+    ],
+    "title": "Batman-Joker Css Playthrough",
+    "stack": ["Next.js", "JavaScript", "Tailwind"],
+    "desc": "Experiment with visual design inspired by iconic comic book characters Batman and Joker. This creative playground allows developers and designers to explore CSS styling techniques in a fun and engaging manner, fostering creativity and skill development.",
+    "git_link": "https://github.com/alisterXavier/Batman-Joker/",
+    "app_link": "https://batman-joker.vercel.app/",
+    "completed": true
+  },
+  {
+    "img": [
+      "/assets/Project-images/rockPaperScissors/app_1.png",
+      "/assets/Project-images/rockPaperScissors/app_2.png",
+      "/assets/Project-images/rockPaperScissors/app_3.png",
+      "/assets/Project-images/rockPaperScissors/app_4.png",
+      "/assets/Project-images/rockPaperScissors/app_5.png"
+    ],
+    "title": "Rock Paper Scissors",
+    "stack": ["Next.js", "JavaScript", "Css"],
+    "desc": "Enjoy classic gaming fun with this interactive game that includes traditional and expanded gameplay modes. It offers a simple yet addictive experience, perfect for casual gaming sessions and challenging friends in competitive matches. Frontend Mentor",
+    "git_link": "https://github.com/alisterXavier/Rock-Paper-Scissor",
+    "app_link": "https://rock-paper-scissor-fx9r.vercel.app/",
+    "completed": true
+  },
+  {
+    "img": ["/assets/Project-images/ip-address/app_1.png"],
+    "title": "Ip Address Tracker",
+    "stack": ["Next.js", "JavaScript", "Ipify API", "Leaflet", "Css"],
+    "desc": "A useful tool for network administrators and security professionals, this application tracks and maps IP addresses for geolocation and network analysis. It provides valuable insights into geographical origins of online activities. Frontend Mentor",
+    "git_link": "https://github.com/alisterXavier/ip-address-tracker",
+    "app_link": "https://ip-address-tracker-dremanic.vercel.app/",
+    "completed": true
+  },
+  {
+    "img": ["/assets/Project-images/nft-landing/app_1.png"],
+    "title": "Nft Landing Page",
+    "stack": ["Next.js", "JavaScript", "Css"],
+    "desc": "Showcasing the emerging world of NFTs, this single-page site highlights digital artworks and collectibles in an aesthetically pleasing format. It serves as a gateway for artists and collectors to showcase their creations and engage with the growing NFT community.",
+    "git_link": "https://github.com/alisterXavier/NFT-LandingPage",
+    "app_link": "https://nft-landing-page-bzfd.vercel.app/",
+    "completed": true
+  },
+  {
+    "title": "WikiScape",
+    "img": [],
+    "stack": ["React.js", "JavaScript", "Python Flask", "Python Wikipedia Api"],
+    "desc": "Simplifying access to knowledge, WikiScape delivers concise summaries of Wikipedia articles in a user-friendly interface. It aims to provide quick and relevant information on a wide range of topics, enhancing educational and research experiences for users.",
+    "git_link": "https://github.com/alisterXavier/Wiki-React-Flask",
+    "completed": true
+  }
+]
