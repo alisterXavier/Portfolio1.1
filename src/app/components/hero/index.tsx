@@ -8,11 +8,21 @@ export { Titles } from './titles';
 export { Work } from './work';
 export { Socials } from './socials';
 export { Certificates } from './certificates';
-export { Profile } from './profile'
+export { Profile } from './profile';
 import { useCardContext } from '@/app/contexts';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { mergeClassNames } from '../classNames';
+
+const getRandomTransformStyle = () => {
+  const styles = [
+    'animate-card-y scale-y-[0%] -translate-y-[100%]',
+    'animate-card-x scale-x-[0%] -translate-x-[100%]',
+    'animate-card-y scale-y-[0%] translate-y-[100%]',
+    'animate-card-x scale-x-[0%] translate-x-[100%]',
+  ];
+  return styles[Math.floor(Math.random() * styles.length)];
+};
 
 export const CardWrapper = ({
   className,
@@ -29,7 +39,11 @@ export const CardWrapper = ({
   return (
     <motion.div
       layoutId={targetClass}
-      className={mergeClassNames(className, 'hero-card bg-default-sub-bg cursor-pointer rounded-[10px] h-full overflow-hidden')}
+      className={mergeClassNames(
+        className,
+        'hero-card bg-default-sub-bg cursor-pointer rounded-[10px] h-full overflow-hidden',
+        getRandomTransformStyle()
+      )}
       data-hero={targetClass}
       onClick={() => {
         if (excludedCards.includes(targetClass)) return;
