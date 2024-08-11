@@ -1,15 +1,13 @@
-import { BiRightArrowAlt } from 'react-icons/bi';
-import { CardWrapper } from '..';
+import emailjs from '@emailjs/browser';
 import {
-  Button,
   ExtendVariants,
   extendVariants,
-  input,
+  Input,
   Textarea,
 } from '@nextui-org/react';
-import { Input } from '@nextui-org/react';
-import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
+import { BiRightArrowAlt } from 'react-icons/bi';
+import { CardWrapper } from '..';
 
 const MyTextArea: ReturnType<ExtendVariants> = extendVariants(Textarea, {
   variants: {
@@ -56,8 +54,9 @@ export const Connect = (): JSX.Element => {
   };
   return (
     <CardWrapper
+      parentClasses="mouse_card row-span-1 col-span-full md:col-span-2 md:row-span-2 "
       targetClass="connect"
-      className={`mouse_card hero_section row-span-1 col-span-full md:col-span-2 md:row-span-2 !cursor-default`}
+      className={`hero_section !cursor-default`}
     >
       <form
         className="relative bg-default-sub-bg w-[100%] h-[100%] transition-all justify-center flex flex-col duration-500 p-5"

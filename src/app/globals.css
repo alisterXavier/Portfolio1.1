@@ -11,7 +11,7 @@ canvas {
 :root {
   --base: #ddd0ff;
   --background: #070f2b;
-  --lighter: #130633;
+  --lighter: #081341;
 
   --base2: #e8e6e4;
   --background2: #181a1c;
@@ -182,4 +182,13 @@ h1 div {
   100% {
     transform: rotate(0);
   }
+}
+.expertise .expertise_box p,
+.about_card p {
+  font-size: 29px !important;
+}
+.about_background{
+  background-image: url('/images/4.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }

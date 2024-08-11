@@ -9,10 +9,10 @@ import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { Observer } from 'gsap/Observer';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import React, { useEffect } from 'react';
-import { CardProvider, useCardContext } from './contexts';
-import './globals.css';
 import Head from 'next/head';
+import React, { useEffect } from 'react';
+import { CardLoadedProvider, CardProvider, useCardContext } from './contexts';
+import './globals.css';
 
 gsap.registerPlugin(
   ScrollTrigger,
@@ -38,12 +38,14 @@ export default function RootLayout({
       </Head>
       <body className={'bg-default-bg'}>
         <CardProvider>
-          <Layout
-            props={{
-              children: children,
-              modal: modal,
-            }}
-          />
+          <CardLoadedProvider>
+            <Layout
+              props={{
+                children: children,
+                modal: modal,
+              }}
+            />
+          </CardLoadedProvider>
         </CardProvider>
       </body>
     </html>
@@ -82,7 +84,7 @@ const Layout = ({
       <AnimatePresence>
         {state && (
           <motion.div
-            className="fixed z-[100] p-10 modal_container w-screen h-screen overflow-y-scroll top-0 left-0 bg-default-bg !text-default-accent"
+            className="absolute z-[100] modal_container w-screen h-screen top-0 left-0 bg-default-bg !text-default-accent"
             layoutId={state}
             key={state}
           >
@@ -93,28 +95,3 @@ const Layout = ({
     </NextUIProvider>
   );
 };
-
-// const ExitAnimations = ({ children }: { children: React.ReactNode }) => {
-//   const { contextSafe } = useGSAP(() => {}, {});
-//   const aboutExit = contextSafe(() => {
-//     gsap.to('.about_container', { opacity: 0, duration: 0.4 });
-//   });
-
-//   const workExit = contextSafe(() => {
-//     gsap.to('.work_container', { opacity: 0, duration: 0.4 });
-//   });
-//   const projectExit = contextSafe(() => {
-//     // gsap.to('.projects_container', { opacity: 0, duration: 0.4 });
-//   });
-
-//   eventEmitter.on('about', () => {
-//     aboutExit();
-//   });
-//   eventEmitter.on('work', () => {
-//     workExit();
-//   });
-//   eventEmitter.on('projects', () => {
-//     projectExit();
-//   });
-//   return <>{children}</>;
-// };

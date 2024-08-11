@@ -1,21 +1,20 @@
 'use client';
 export { About } from './about';
+export { Certificates } from './certificates';
 export { Connect } from './connect';
 export { Expertise } from './expertise';
-export { Projects } from './projects';
-export { Stack } from './stack';
-export { Titles } from './titles';
-export { Work } from './work';
-export { Socials } from './socials';
-export { Certificates } from './certificates';
 export { Profile } from './profile';
+export { Projects } from './projects';
+export { Socials } from './socials';
+export { Stack } from './stack';
+export { Work } from './work';
 import { useCardContext } from '@/app/contexts';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { mergeClassNames } from '../classNames';
 
 const getRandomTransformStyle = () => {
-  const styles = [
+  var styles = [
     'animate-card-y scale-y-[0%] -translate-y-[100%]',
     'animate-card-x scale-x-[0%] -translate-x-[100%]',
     'animate-card-y scale-y-[0%] translate-y-[100%]',
@@ -28,21 +27,23 @@ export const CardWrapper = ({
   className,
   children,
   targetClass,
+  parentClasses,
 }: {
   className: string;
   targetClass: string;
+  parentClasses: string;
   children: React.ReactNode;
 }): JSX.Element => {
   const router = useRouter();
-  const excludedCards = ['stack', 'random', 'connect', 'expertise'];
+  const excludedCards = ['stack', 'random', 'connect', 'expertise', 'socials'];
   const { setState } = useCardContext();
   return (
     <motion.div
       layoutId={targetClass}
       className={mergeClassNames(
-        className,
-        'hero-card bg-default-sub-bg cursor-pointer rounded-[10px] h-full overflow-hidden',
-        getRandomTransformStyle()
+        parentClasses,
+        targetClass,
+        'hero-card cursor-pointer rounded-[10px] w-full h-full overflow-hidden'
       )}
       data-hero={targetClass}
       onClick={() => {
@@ -53,7 +54,15 @@ export const CardWrapper = ({
         }, 500);
       }}
     >
-      {children}
+      <div
+        className={mergeClassNames(
+          getRandomTransformStyle(),
+          'w-full h-full bg-default-sub-bg',
+          className
+        )}
+      >
+        {children}
+      </div>
     </motion.div>
   );
 };

@@ -1,7 +1,7 @@
 'use client';
-import { AiOutlineMail, AiFillGithub, AiOutlineLinkedin } from 'react-icons/ai';
-import { TbBrandDiscord } from 'react-icons/tb';
 import React from 'react';
+import { AiFillGithub, AiOutlineLinkedin, AiOutlineMail } from 'react-icons/ai';
+import { TbBrandDiscord } from 'react-icons/tb';
 import { CardWrapper, mergeClassNames } from '../..';
 
 export const Socials = () => {
@@ -35,13 +35,13 @@ export const Socials = () => {
   }) => (
     <a
       rel="noreferrer"
-      target="_blank"
+      target="__blank"
       onClick={() => {
         copy(data);
       }}
       href={href ?? undefined}
       className={mergeClassNames(
-        'social mouse_card bg-default-sub-bg col-span-1 flex items-center justify-center cursor-pointer rounded-[10px]'
+        'socials mouse_card bg-default-sub-bg col-span-1 flex items-center justify-center cursor-pointer rounded-[5px] md:rounded-[10px]'
       )}
       id={data}
       data-hero={data}
@@ -52,8 +52,9 @@ export const Socials = () => {
 
   return (
     <CardWrapper
+      parentClasses="col-span-1 row-span-2 md:col-span-2 md:col-span-1 md:row-span-1"
       targetClass=""
-      className="socials__wrapper !bg-default-bg col-span-2 md:col-span-1 row-span-1 gap-2 grid grid-cols-2"
+      className="socials__wrapper !bg-default-bg grid gap-2 grid-cols-1 md:grid-cols-2"
     >
       <ClickableItem data="discord">
         <TbBrandDiscord size={20} className="text-default-accent" />

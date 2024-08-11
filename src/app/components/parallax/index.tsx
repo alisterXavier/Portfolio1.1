@@ -1,5 +1,5 @@
 'use client';
-import { useCardContext } from '@/app/contexts';
+import { useCardContext, useCardLoadedContext } from '@/app/contexts';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
@@ -9,6 +9,7 @@ interface ParallaxProps {
 
 export const Parallax: React.FC<ParallaxProps> = ({ children }) => {
   const { state } = useCardContext();
+  const { state: cardLoaded } = useCardLoadedContext();
   const [title, setTitle] = useState<string | null>(null);
   const [inside, setInside] = useState(false);
   const x = useMotionValue(0);
@@ -60,7 +61,7 @@ export const Parallax: React.FC<ParallaxProps> = ({ children }) => {
       });
     };
 
-    if (!state) {
+    if (!state || cardLoaded) {
       addEventListeners();
     } else {
       removeEventListeners();
@@ -70,7 +71,7 @@ export const Parallax: React.FC<ParallaxProps> = ({ children }) => {
     return () => {
       removeEventListeners();
     };
-  }, [state, x, y]);
+  }, [cardLoaded, state, x, y]);
 
   return (
     <div className="w-full h-full">

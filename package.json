@@ -24,7 +24,8 @@
     "split-type": "^0.3.4",
     "swiper": "^11.1.4",
     "tailwind-merge": "^2.3.0",
-    "three": "^0.146.0"
+    "three": "^0.146.0",
+    "@studio-freight/react-lenis": "^0.0.46"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,42 +1,52 @@
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { useRef } from 'react';
 import { BsArrowUpRight } from 'react-icons/bs';
 import { CardWrapper } from '..';
-import { useGSAP } from '@gsap/react';
-import { useRef } from 'react';
-import gsap from 'gsap';
+import { useCardLoadedContext } from '@/app/contexts';
 
 export const Certificates = (): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null);
   const shineRef = useRef<HTMLDivElement>(null);
-  
+  const { state } = useCardLoadedContext();
+
   useGSAP(
     () => {
+      if (!state) return;
+
       const textboxspan = ref.current?.querySelector('.certificate-text span');
       const textboxp = ref.current?.querySelector('.certificate-text p');
+      
+      if (!textboxspan || !textboxp) return;
+      
       const tl = gsap.timeline();
-      const shineTL = gsap.timeline({ repeat: -1, repeatDelay: 7, paused: true });
-      if (textboxspan && textboxp)
-        tl.from(textboxspan, {
+      const shineTL = gsap.timeline({
+        repeat: -1,
+        repeatDelay: 7,
+        paused: true,
+      });
+      tl.from(textboxspan, {
+        left: '0%',
+        right: '100%',
+      })
+        .to(textboxspan, {
           left: '0%',
-          right: '100%',
+          right: '0%',
+          ease: 'power.in',
         })
-          .to(textboxspan, {
-            left: '0%',
-            right: '0%',
-            ease: 'power.in',
-          })
-          .to(textboxp, {
-            opacity: 1,
-          })
-          .to(textboxspan, {
-            left: '100%',
-            right: 0,
-            ease: 'power.out',
-            onComplete: () => {
-              setTimeout(() => {
-                shineTL.play()
-              }, 1000)
-            }
-          });
+        .to(textboxp, {
+          opacity: 1,
+        })
+        .to(textboxspan, {
+          left: '100%',
+          right: 0,
+          ease: 'power.out',
+          onComplete: () => {
+            setTimeout(() => {
+              shineTL.play();
+            }, 1000);
+          },
+        });
 
       shineTL.fromTo(
         shineRef.current,
@@ -45,20 +55,21 @@ export const Certificates = (): JSX.Element => {
         },
         {
           translateX: '10%',
-          duration: 1
+          duration: 1,
         }
       );
     },
     {
-      dependencies: [ref],
+      dependencies: [ref, state],
       scope: ref,
     }
   );
 
   return (
     <CardWrapper
+      parentClasses="mouse_card col-span-3 md:col-span-2 row-span-1"
       targetClass="certificates"
-      className="mouse_card relative certificate_section certificates_container col-span-2 row-span-1 p-5"
+      className="relative certificate_section certificates_container p-5"
       data-hero="certificates"
     >
       <div className="certificates flex h-full" ref={ref}>
