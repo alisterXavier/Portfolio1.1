@@ -195,7 +195,7 @@ const Projects = () => {
 
   return (
     <motion.div
-      className="w-full h-[90vh] bg-default-sub-bg projects_container relative"
+      className="w-full h-screen bg-default-sub-bg projects_container relative"
       layoutId={'projects'}
     >
       <Menu
