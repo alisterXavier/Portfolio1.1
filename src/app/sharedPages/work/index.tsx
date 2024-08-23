@@ -20,7 +20,7 @@ const work_details = [
       'Monitoring large-scale streaming content from Youtube, Twitch & TikTok. Their tools help you to monitor your brands, analyse market trends or identify subjects not corresponding to the policy requirements. You receive finalized data and reports that leave you with decision-making. Their data helps private companies, compliance providers, and governments. Save your time. Be a step ahead of others.',
   },
   {
-    position: ['Front-End Engineer/Front-End Developer'],
+    position: ['Frontend Developer'],
     company: 'Nysta - AI Driven Startup',
     date: '04/2023 - 04/2024',
     description:
@@ -150,10 +150,10 @@ const Work = () => {
           {work_details.map((item, index) => {
             return (
               <div
-                className="work_section absolute flex items-center justify-center w-full h-full"
+                className="work_section absolute flex-col md:flex-row flex items-center justify-center w-full h-full"
                 key={index}
               >
-                <div className="work_image_section relative w-[40%] h-screen invisible">
+                <div className="work_image_section relative w-full md:w-[40%] h-[50%] md:h-screen invisible overflow-hidden">
                   <div
                     className={mergeClassNames(
                       'h-full w-full flex items-center justify-center'
@@ -166,7 +166,7 @@ const Work = () => {
                     </div>
                   </div>
                 </div>
-                <div className="work_details_section relative w-[60%] h-screen invisible p-10">
+                <div className="work_details_section relative bg-default-bg w-full md:w-[60%] h-[50%] md:h-screen invisible p-10">
                   <div className="work_details_outer w-full h-full overflow-y-hidden">
                     <div
                       className={mergeClassNames(
@@ -174,23 +174,18 @@ const Work = () => {
                       )}
                     >
                       <div className="work_details w-full text-default-accent flex flex-col">
-                        <div className="space-bold">
-                          <p className="work_company overflow-hidden tracking-widest">
+                        <div className="space-bold w-full">
+                          <p className="work_company overflow-hidden tracking-widest text-[10px]">
                             {item.company}
                           </p>
                         </div>
                         <div className="">
-                          <h2 className="text-[30px] w-full work_position overflow-hidden tracking-widest">
+                          <h2 className="text-[20px] md:text-[30px] w-full work_position overflow-hidden tracking-widest">
                             {item.position}
                           </h2>
                           <p className="work_date overflow-hidden tracking-widest">
                             {item.date}
                           </p>
-                          {/* <div className="w-full mt-5 work_description">
-                            <p className="work_description overflow-hidden">
-                              {item.description}
-                            </p>
-                          </div> */}
                         </div>
                       </div>
                     </div>

@@ -1,6 +1,6 @@
 'use client';
 import { useGSAP } from '@gsap/react';
-import { NextUIProvider } from '@nextui-org/react';
+// import { NextUIProvider } from '@nextui-org/react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { Draggable } from 'gsap/Draggable';
@@ -79,12 +79,12 @@ const Layout = ({
   }, []);
 
   return (
-    <NextUIProvider>
+    <>
       {props.children}
       <AnimatePresence>
         {state && (
           <motion.div
-            className="absolute z-[100] modal_container w-screen h-screen top-0 left-0 bg-default-bg !text-default-accent"
+            className="fixed z-[100] modal_container w-screen h-screen top-0 left-0 bg-default-bg !text-default-accent"
             layoutId={state}
             key={state}
           >
@@ -92,6 +92,6 @@ const Layout = ({
           </motion.div>
         )}
       </AnimatePresence>
-    </NextUIProvider>
+    </>
   );
 };

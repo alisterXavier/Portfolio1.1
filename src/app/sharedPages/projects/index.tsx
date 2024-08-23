@@ -205,13 +205,6 @@ const Projects = () => {
         back={{ toggle: toggleProject, setToggle: setToggleProject }}
       />
 
-      {/* Edge Gradients */}
-      {/* <span className="gradient__y bg-gradient-to-b from-default-bg from-20% w-full h-[100px] absolute top-0 z-[1]"></span>
-      <span className="gradient__x bg-gradient-to-r from-default-bg from-20% w-[100px] h-full absolute left-0 z-[1]"></span>
-      <span className="gradient__y bg-gradient-to-t from-default-bg from-20% w-full h-[100px] absolute bottom-0 z-[1]"></span>
-      <span className="gradient__x bg-gradient-to-l from-default-bg from-20% w-[100px] h-full absolute right-0 z-[1]"></span> */}
-      {/* ---- */}
-
       <motion.div className="w-full h-full flex items-end relative z-[0]">
         <motion.div className="relative overflow-hidden w-[100%] h-[100%] bg-default-bg flex items-center justify-center">
           <motion.div

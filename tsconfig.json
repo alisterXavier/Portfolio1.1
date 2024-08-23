@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -21,9 +22,15 @@
       "@/*": ["./src/*"],
       "@/shared": ["./src/app/sharedPages"],
       "@/images/*": ["./public/images/*"],
-      "@/assets/*": ["./public/assets/*"],
+      "@/assets/*": ["./public/assets/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/pages/work"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/pages/work"
+  ],
   "exclude": ["node_modules"]
 }

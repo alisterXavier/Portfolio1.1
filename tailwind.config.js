@@ -1,6 +1,3 @@
-const { nextui } = require('@nextui-org/react');
-const plugin = require('tailwindcss/plugin');
-
 const colors = get();
 module.exports = {
   mode: 'jit',
@@ -15,16 +12,14 @@ module.exports = {
       backgroundColor: colors.setColors(),
       textColor: colors.setColors(),
       borderColor: colors.setColors(),
+      fill: colors.setColors(),
       gradientColorStops: (theme) => ({
         ...theme('colors'),
         ...colors.setColors(),
       }),
     },
   },
-  plugins: [
-    require('tailwindcss-3d')({ legacy: true }),
-    nextui(),
-  ],
+  plugins: [require('tailwindcss-3d')({ legacy: true })],
 };
 
 function get() {

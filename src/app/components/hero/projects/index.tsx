@@ -135,7 +135,7 @@ export const Projects = (): JSX.Element => {
             );
           })}
         </div>
-        <div className={`absolute w-[275px] md:w-[300px] h-[150px] projects_list_tracker`}>
+        <div className={`absolute w-[300px] h-[150px] projects_list_tracker`}>
           <span className="absolute top-0 left-0 border-l-default-accent border-t-default-accent border-l-4 border-t-4 h-[30px] w-[30px]"></span>
           <span className="absolute top-0 right-0 border-r-default-accent border-t-default-accent border-r-4 border-t-4 h-[30px] w-[30px]"></span>
           <span className="absolute bottom-0 left-0 border-l-default-accent border-b-default-accent border-l-4 border-b-4 h-[30px] w-[30px]"></span>

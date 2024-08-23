@@ -11,6 +11,7 @@ export { Work } from './work';
 import { useCardContext } from '@/app/contexts';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 import { mergeClassNames } from '../classNames';
 
 const getRandomTransformStyle = () => {
@@ -35,7 +36,14 @@ export const CardWrapper = ({
   children: React.ReactNode;
 }): JSX.Element => {
   const router = useRouter();
-  const excludedCards = ['stack', 'random', 'connect', 'expertise', 'socials'];
+  const excludedCards = [
+    'stack',
+    'random',
+    'connect',
+    'expertise',
+    'socials',
+    'projects',
+  ];
   const { setState } = useCardContext();
   return (
     <motion.div
@@ -47,7 +55,28 @@ export const CardWrapper = ({
       )}
       data-hero={targetClass}
       onClick={() => {
-        if (excludedCards.includes(targetClass)) return;
+        if (excludedCards.includes(targetClass)) {
+          toast(
+            (t) => (
+              <span>
+                Project section in progress
+                <button
+                  onClick={() => toast.dismiss(t.id)}
+                  className="!bg-default-bg ml-2 p-2"
+                >
+                  Dismiss
+                </button>
+              </span>
+            ),
+            {
+              duration: 5000,
+              className: '!text-default-accent !bg-default-sub-bg',
+              style: {},
+              position: 'top-right',
+            }
+          );
+          return;
+        }
         setState(targetClass);
         setTimeout(() => {
           router.push(`/${targetClass}`);
