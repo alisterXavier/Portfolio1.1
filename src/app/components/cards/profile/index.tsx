@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { CardWrapper } from '../..';
-
+import image from '@/images/1.png'
 export const Profile = () => {
   return (
     <CardWrapper
@@ -10,7 +10,7 @@ export const Profile = () => {
     >
       <figure className="relative w-full h-full overflow-hidden">
         <Image
-          src={require('../../../../../public/images/1.jpg')}
+          src={image}
           alt=""
           objectFit="cover"
           objectPosition='center'
