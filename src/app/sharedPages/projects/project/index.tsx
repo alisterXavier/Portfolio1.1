@@ -1,6 +1,6 @@
 'use client';
+import { StaggerText } from '@/app/components/cards/about';
 import { useGSAP } from '@gsap/react';
-import { StaggerText } from 'componentopia';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
@@ -78,7 +78,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                 duration={0.5}
                 delay={1.6}
                 styles={{
-                  size: 15,
+                  fontSize: 'text-[10px] md:text-[15px]',
                 }}
                 text={project.desc}
               />
@@ -93,7 +93,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                 duration={0.5}
                 delay={1.6}
                 styles={{
-                  size: 15,
+                  fontSize: 'text-[8px] md:text-[10px]',
                 }}
                 text={'Tech Stack:'}
               />
@@ -107,7 +107,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                   duration={0.5}
                   delay={1.6}
                   styles={{
-                    size: 15,
+                    fontSize: 'text-[8px] md:text-[10px]',
                   }}
                   text={project.stack
                     .map((item, index) => {
@@ -132,7 +132,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                   duration={0.5}
                   delay={1.6}
                   styles={{
-                    size: 15,
+                    fontSize: 'text-[8px] md:text-[10px]',
                   }}
                   text={'Github'}
                 />
@@ -152,7 +152,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                     duration={0.5}
                     delay={1.6}
                     styles={{
-                      size: 15,
+                      fontSize: 'text-[8px] md:text-[10px]',
                     }}
                     text={'App'}
                   />
