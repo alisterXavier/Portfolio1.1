@@ -1,10 +1,10 @@
 'use client';
 import { useGSAP } from '@gsap/react';
+import { StaggerText } from 'componentopia';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import Image from 'next/image';
 import Link from 'next/link';
-import { StaggerText } from 'componentopia';
 
 export type ProjectType = {
   title: string;
@@ -42,7 +42,7 @@ const Project = ({ project }: { project: ProjectType }) => {
   }, []);
 
   return (
-    <motion.div className="text-default-accent p-10 z-[1]">
+    <motion.div className="text-[var(--accent)] p-10 z-[1]">
       <motion.div className="w-full h-[90vh] relative grid grid-cols-1 grid-rows-2 md:grid-cols-2 md:grid-rows-1">
         <motion.div
           className="w-full h-full md:col-span-1 relative flex flex-col justify-center"

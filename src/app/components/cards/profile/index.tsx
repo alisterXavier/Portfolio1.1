@@ -1,4 +1,5 @@
-import { CardWrapper } from '..';
+import Image from 'next/image';
+import { CardWrapper } from '../..';
 
 export const Profile = () => {
   return (
@@ -8,13 +9,13 @@ export const Profile = () => {
       className="w-full h-full"
     >
       <figure className="relative w-full h-full overflow-hidden">
-        {/* <Image
-          src={require('../../../../../public/IMG-20240412-WA0013.jpg')}
+        <Image
+          src={require('../../../../../public/images/1.jpg')}
           alt=""
           objectFit="cover"
-          objectPosition='top'
+          objectPosition='center'
           fill
-        /> */}
+        />
       </figure>
     </CardWrapper>
   );

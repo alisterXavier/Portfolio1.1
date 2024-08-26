@@ -1,39 +1,21 @@
 'use client';
-import { useCardContext, useCardLoadedContext } from '@/app/contexts';
+import { useCardContext, useInitalPageLoadedContext } from '@/app/contexts';
 import { AnimatePresence, motion, useMotionValue } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
-interface ParallaxProps {
+interface ToolTipProps {
   children: React.ReactNode;
 }
 
-export const Parallax: React.FC<ParallaxProps> = ({ children }) => {
+export const ToolTip: React.FC<ToolTipProps> = ({ children }) => {
   const { state } = useCardContext();
-  const { state: cardLoaded } = useCardLoadedContext();
+  const { state: cardLoaded } = useInitalPageLoadedContext();
   const [title, setTitle] = useState<string | null>(null);
   const [inside, setInside] = useState(false);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   useEffect(() => {
-    // TODO Possible Parallax Feature
-    // const speed: number[] = [0.05, 0.03, 0.04, 0.02];
-    // const elems = document.querySelectorAll('.parallax');
-
-    // mouseMoveRef.current = (e: MouseEvent) => {
-    //   elems.forEach((elem, index) => {
-    //     const { clientX, clientY } = e;
-    //     const translateX = (clientX - window.innerWidth / 2) * speed[index];
-    //     const translateY = (clientY - window.innerHeight / 2) * speed[index];
-
-    //     gsap.to(elem, {
-    //       x: translateX,
-    //       y: translateY,
-    //       duration: 0.75,
-    //     });
-    //   });
-    // };
-
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
       const { scrollX, scrollY } = window;
       const text = e.currentTarget.getAttribute('data-hero');
@@ -61,11 +43,11 @@ export const Parallax: React.FC<ParallaxProps> = ({ children }) => {
       });
     };
 
-    if (!state || cardLoaded) {
+    if (!state && cardLoaded) {
       addEventListeners();
     } else {
-      removeEventListeners();
-      handleMouseLeave();
+      removeEventListeners()
+      handleMouseLeave()
     }
 
     return () => {
@@ -95,7 +77,7 @@ export const Parallax: React.FC<ParallaxProps> = ({ children }) => {
               scale: 0,
               opacity: 0,
             }}
-            className="absolute z-[100] opacity-0 top-0 left-0 px-5 py-2 rounded-[15px] tooltip text-[15px] text-default-bg capitalize bg-default-accent"
+            className="absolute z-[100] opacity-0 top-0 left-0 px-5 py-2 rounded-[15px] tooltip text-[15px] text-[var(--main)] capitalize bg-[var(--accent)]"
           >
             {title}
           </motion.div>

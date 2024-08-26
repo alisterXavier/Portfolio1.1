@@ -5,25 +5,24 @@ import ReactLenis from '@studio-freight/react-lenis';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { useRouter } from 'next/navigation';
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ImCross } from 'react-icons/im';
-import SplitType, { TargetElement } from 'split-type';
 import { handleClick } from '../';
 import {
   FifthSection,
   FourthSection,
+  FourthSpan,
   HeroText,
   SecondSection,
   ThirdSection,
-  FourthSpan,
 } from './Components';
 
 const Mask = ({
   inside,
-  setInside,
+  cross,
 }: {
   inside: boolean;
-  setInside: Dispatch<SetStateAction<boolean>>;
+  cross: JSX.Element;
 }) => {
   const test = useRef<number>(0);
   const [toggle, setToggle] = useState(false);
@@ -122,49 +121,50 @@ const Mask = ({
 
   return (
     <motion.div
-      className={`mask bg-default-accent h-full border opacity-0`}
+      className={`mask bg-[var(--accent)] h-full border opacity-0`}
       animate={{
         pointerEvents: 'none',
       }}
     >
+      {cross}
       <div className="about_container h-full">
-        <HeroText className="!text-default-bg" />
+        <HeroText className="!text-[var(--main)]" />
         <SecondSection
           text="Crafting Digital Experiences, One Line at a Time"
           text1="Front End Developer"
-          className="!text-default-bg"
+          className="!text-[var(--main)]"
         />
         <ThirdSection
           firstColumn={{
             header: 'Front End',
             text1: 'Design',
             text2: 'Develop',
-            className: '!bg-default-accent !text-default-bg',
+            className: '!bg-[var(--accent)] !text-[var(--main)]',
           }}
           secondColumn={{
             header: 'Cloud',
             text1: 'Plan',
             text2: 'Provision',
-            className: '!bg-default-bg !text-default-accent second-service',
+            className: '!bg-[var(--main)] !text-[var(--accent)] second-service',
           }}
         />
-        <FourthSection className="!text-default-bg">
+        <FourthSection className="!text-[var(--main)]">
           I create solutions that blend robustness with{' '}
           <FourthSpan
             text="elegance"
-            classNames="bg-default-bg text-default-accent"
+            classNames="bg-[var(--main)] text-[var(--accent)]"
           />
           , designed for modern applications and adapt to evolving demands. My
           work guarantees seamless{' '}
           <FourthSpan
             text="usability"
-            classNames="bg-default-bg text-default-accent"
+            classNames="bg-[var(--main)] text-[var(--accent)]"
           />{' '}
           and resilience, ensuring optimal performance for your projects.
         </FourthSection>
         <FifthSection
-          headerClassName={'text-default-bg'}
-          emailClassName={'bg-default-bg text-default-accent'}
+          headerClassName={'text-[var(--main)]'}
+          emailClassName={'bg-[var(--main)] text-[var(--accent)]'}
         />
       </div>
     </motion.div>
@@ -181,171 +181,21 @@ const About = () => {
   useGSAP(
     () => {
       let container = ref.current,
-        heros = container!.querySelectorAll('.about_section_hero'),
-        sections = document.querySelectorAll('.about_section'),
-        horizontal = document.querySelectorAll('.horizontal'),
-        tl = gsap.timeline({
-          defaults: { duration: 1.25, ease: 'power1.inOut' },
-        });
+        sections = document.querySelectorAll('.about_section');
 
-      const splitText = () => {
-        const wrapCharsInSpan = (chars: HTMLElement[]) => {
-          chars.forEach((char) => {
-            const span = document.createElement('span');
-            span.classList.add('char-wrapper');
-            char.parentNode?.insertBefore(span, char);
-            span.appendChild(char);
-            span.classList.add('inline-block');
-          });
-        };
-        sections.forEach((section) => {
-          const splitText2 = new SplitType(
-            section.querySelectorAll('.about_sub_line')
-          ).chars;
-
-          splitText2?.forEach((char) => {
-            char.classList.add('opacity-0', 'skew-x-[50px]', 'blur-[10px]');
-          });
-        });
-        heros.forEach((hero) => {
-          const splitText = new SplitType(
-            hero.querySelector('.about_name')! as TargetElement
-          ).chars;
-          wrapCharsInSpan(splitText!);
-        });
-      };
-      splitText();
-
-      const onSectionEntry = () => {
-        const name = heros[0]?.querySelectorAll('.about_name'),
-          name2 = heros[1]?.querySelectorAll('.about_name'),
-          chars = heros[0]?.querySelectorAll('.char'),
-          chars2 = heros[1]?.querySelectorAll('.char');
-        tl.fromTo([name, name2], { autoAlpha: 0 }, { autoAlpha: 1 }).fromTo(
-          [chars, chars2],
-          {
-            opacity: 0,
-            autoAlpha: 0,
-            scale: 2,
-            y: -40,
-            x: 40,
-            filter: 'blur(8px)',
+      gsap.fromTo(
+        sections,
+        {
+          yPercent: 0,
+        },
+        {
+          yPercent: -100,
+          scrollTrigger: {
+            trigger: container,
+            scrub: true,
           },
-          {
-            opacity: 1,
-            autoAlpha: 1,
-            scale: 1,
-            y: 0,
-            x: 0,
-            filter: 'blur(0px)',
-            duration: 0.5,
-            ease: 'ease',
-            stagger: {
-              amount: 0.2,
-              from: 'start',
-            },
-          },
-          0
-        );
-
-        sections.forEach((section) => {
-          gsap.to([section.querySelectorAll('.char')], {
-            opacity: 1,
-            skewY: 0,
-            filter: 'blur(0px)',
-            scrollTrigger: {
-              trigger: section,
-              start: 'top 70%',
-            },
-            stagger: {
-              amount: 1,
-            },
-          });
-        });
-      };
-
-      const onSectionExit = () => {
-        const chars = heros[0]?.querySelectorAll('.char'),
-          chars2 = heros[1]?.querySelectorAll('.char');
-        tl.fromTo(
-          chars,
-          {
-            opacity: 1,
-            autoAlpha: 1,
-            y: 0,
-            x: 0,
-            filter: 'blur(0px)',
-            scale: 1,
-          },
-          {
-            opacity: 0,
-            autoAlpha: 0,
-            scale: 1.8,
-            y: -40,
-            x: 40,
-            filter: 'blur(8px)',
-            scrollTrigger: {
-              trigger: horizontal,
-              scrub: true,
-              start: 'top top',
-              end: () =>
-                '+=' + (sections[0].getBoundingClientRect().height - 100),
-            },
-            stagger: {
-              amount: 0.8,
-              from: 'end',
-            },
-          }
-        );
-        tl.fromTo(
-          chars2,
-          {
-            opacity: 1,
-            autoAlpha: 1,
-            y: 0,
-            x: 0,
-            filter: 'blur(0px)',
-            scale: 1,
-          },
-          {
-            opacity: 0,
-            autoAlpha: 0,
-            scale: 1.8,
-            y: -40,
-            x: 40,
-            filter: 'blur(8px)',
-            scrollTrigger: {
-              trigger: horizontal,
-              scrub: true,
-              start: 'top top',
-              end: () =>
-                '+=' + (sections[0].getBoundingClientRect().height - 100),
-            },
-            stagger: {
-              amount: 0.8,
-              from: 'end',
-            },
-          },
-          '-=0'
-        );
-
-        gsap.fromTo(
-          Array.from(sections),
-          {
-            yPercent: 0,
-          },
-          {
-            yPercent: -100,
-            scrollTrigger: {
-              trigger: container,
-              start: 'top end',
-              scrub: true,
-            },
-          }
-        );
-      };
-      onSectionEntry();
-      onSectionExit();
+        }
+      );
     },
     {
       dependencies: [],
@@ -367,22 +217,28 @@ const About = () => {
         onMouseMove={() => {
           !inside && setInside(true);
         }}
+        onMouseLeave={() => {
+          inside && setInside(false);
+        }}
       >
         <ImCross
           size={30}
-          className="absolute top-10 right-10 z-[100]"
-          color="white"
+          className="absolute top-10 right-10 cursor-pointer z-[100] text-[var(--accent)]"
+          onMouseMove={(e) => {
+            e.preventDefault();
+            setInside(false);
+          }}
           onClick={(e) => {
-            e.preventDefault()
+            e.preventDefault();
             handleClick({ setState, targetClass, router });
           }}
         />
-        <div className="about_container horizontal bg-default-bg">
-          <HeroText className="!text-default-accent" />
+        <div className="about_container horizontal bg-[var(--main)]">
+          <HeroText className="!text-[var(--accent)]" />
           <SecondSection
             text="Transforming Visions into Cloud Realities"
             text1="Cloud Engineer"
-            className="!text-default-accent"
+            className="!text-[var(--accent)]"
           />
           <ThirdSection
             setInside={setInside}
@@ -390,35 +246,46 @@ const About = () => {
               header: 'Cloud',
               text1: 'Plan',
               text2: 'Provision',
-              className: '!bg-default-bg !text-default-accent',
+              className: '!bg-[var(--main)] !text-[var(--accent)]',
             }}
             secondColumn={{
               header: 'Front End',
               text1: 'Design',
               text2: 'Develop',
-              className: '!bg-default-accent !text-default-bg second-service',
+              className:
+                '!bg-[var(--accent)] !text-[var(--main)] second-service',
             }}
           />
-          <FourthSection className="!text-default-accent">
+          <FourthSection className="!text-[var(--accent)]">
             I create solutions that blend robustness with{' '}
             <FourthSpan
               text="scalability"
-              classNames="bg-default-accent text-default-bg"
+              classNames="bg-[var(--accent)] text-[var(--main)]"
             />
             , designed for modern applications and adapt to evolving demands. My
             work guarantees seamless{' '}
             <FourthSpan
               text="reliability"
-              classNames="bg-default-accent text-default-bg"
+              classNames="bg-[var(--accent)] text-[var(--main)]"
             />{' '}
             and resilience, ensuring optimal performance for your projects.
           </FourthSection>
           <FifthSection
-            headerClassName={'text-default-accent'}
-            emailClassName={'bg-default-accent text-default-bg fill-default-bg'}
+            headerClassName={'text-[var(--accent)]'}
+            emailClassName={
+              'bg-[var(--accent)] text-[var(--main)] fill-default-bg'
+            }
           />
         </div>
-        <Mask inside={inside} setInside={setInside} />
+        <Mask
+          inside={inside}
+          cross={
+            <ImCross
+              size={30}
+              className="absolute top-10 right-10 cursor-pointer text-[var(--main)]"
+            />
+          }
+        />
       </div>
     </ReactLenis>
   );

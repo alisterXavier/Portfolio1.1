@@ -32,24 +32,24 @@ export const useCardContext = () => {
   return context;
 };
 
-interface ContextLoadedProps {
+interface InitalPageLoadedProps {
   state: boolean;
   setState: Dispatch<SetStateAction<boolean>>;
 }
-export const CardLoadedContext = createContext<ContextLoadedProps | null>(null);
+export const InitalPageLoadedContext = createContext<InitalPageLoadedProps | null>(null);
 
-export const CardLoadedProvider = ({ children }: { children: ReactNode }) => {
+export const InitalPageLoadedProvider = ({ children }: { children: ReactNode }) => {
   const [state, setState] = useState<boolean>(false);
 
   return (
-    <CardLoadedContext.Provider value={{ state, setState }}>
+    <InitalPageLoadedContext.Provider value={{ state, setState }}>
       {children}
-    </CardLoadedContext.Provider>
+    </InitalPageLoadedContext.Provider>
   );
 };
 
-export const useCardLoadedContext = () => {
-  const context = useContext(CardLoadedContext);
+export const useInitalPageLoadedContext = () => {
+  const context = useContext(InitalPageLoadedContext);
 
   if (!context) throw new Error('No Context');
 

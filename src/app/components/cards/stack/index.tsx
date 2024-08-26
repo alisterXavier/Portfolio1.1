@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { CardWrapper } from '..';
+import { CardWrapper } from '../..';
 import stack from '../../../../../public/assets/data/stack.json';
 
 export const Stack = (): JSX.Element => {

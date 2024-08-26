@@ -3,12 +3,12 @@ import { mergeClassNames } from '@/app/components';
 import { useCardContext } from '@/app/contexts';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { Observer } from 'gsap/Observer';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { ImCross } from 'react-icons/im';
-import { handleClick } from '../utils';
-import { Observer } from 'gsap/Observer';
 import SplitType, { TargetElement } from 'split-type';
+import { handleClick } from '../utils';
 
 const work_details = [
   {
@@ -166,14 +166,14 @@ const Work = () => {
                     </div>
                   </div>
                 </div>
-                <div className="work_details_section relative bg-default-bg w-full md:w-[60%] h-[50%] md:h-screen invisible p-10">
+                <div className="work_details_section relative bg-[var(--main)] md:bg-transparent w-full md:w-[60%] h-[50%] md:h-screen invisible p-10">
                   <div className="work_details_outer w-full h-full overflow-y-hidden">
                     <div
                       className={mergeClassNames(
-                        'work_details_inner bg-default-bg h-full w-full flex items-center justify-center overflow-y-hidden'
+                        'work_details_inner bg-[var(--main)] h-full w-full flex items-center justify-center overflow-y-hidden'
                       )}
                     >
-                      <div className="work_details w-full text-default-accent flex flex-col">
+                      <div className="work_details w-full text-[var(--accent)] flex flex-col">
                         <div className="space-bold w-full">
                           <p className="work_company overflow-hidden tracking-widest text-[10px]">
                             {item.company}

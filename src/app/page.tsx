@@ -1,6 +1,8 @@
 'use client';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useEffect } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import {
@@ -8,19 +10,18 @@ import {
   Certificates,
   Connect,
   Expertise,
-  Parallax,
   Profile,
   Projects,
   Socials,
   Stack,
+  ToolTip,
   Work,
 } from './components';
-import toast, { Toaster } from 'react-hot-toast';
-import { useEffect } from 'react';
-import { useCardLoadedContext } from './contexts';
+import { useInitalPageLoadedContext } from './contexts';
 
 export default function Home() {
-  const { setState } = useCardLoadedContext();
+  const { setState } = useInitalPageLoadedContext();
+
   useGSAP(() => {
     const elemsX = document.querySelectorAll('.animate-card-x');
     const elemsY = document.querySelectorAll('.animate-card-y');
@@ -58,7 +59,7 @@ export default function Home() {
           Portfolio is still in progress
           <button
             onClick={() => toast.dismiss(t.id)}
-            className="!bg-default-bg ml-2 p-2"
+            className="!bg-[var(--main)] ml-2 p-2"
           >
             Dismiss
           </button>
@@ -66,7 +67,7 @@ export default function Home() {
       ),
       {
         duration: 10000,
-        className: '!text-default-accent !bg-default-sub-bg',
+        className: '!text-[var(--accent)] !bg-[var(--sub)]',
         style: {},
         position: 'top-right',
       }
@@ -74,7 +75,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Parallax>
+    <ToolTip>
       <Toaster />
       <main className="main__wrapper relative min-h-full md:h-screen min-w-full cursor-default perspective-1000 transform-style-3d flex items-center justify-center overflow-hidden">
         <div className="relative p-10 grid-cols-4 grid-rows-9 items-start md:grid-cols-7 md:grid-rows-4 grid gap-3 perspective-1000 transform-style-3d w-full min-h-full">
@@ -89,6 +90,6 @@ export default function Home() {
           <Connect />
         </div>
       </main>
-    </Parallax>
+    </ToolTip>
   );
 }

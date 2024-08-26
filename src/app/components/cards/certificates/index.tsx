@@ -1,14 +1,14 @@
+import { useInitalPageLoadedContext } from '@/app/contexts';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
 import { BsArrowUpRight } from 'react-icons/bs';
-import { CardWrapper } from '..';
-import { useCardLoadedContext } from '@/app/contexts';
+import { CardWrapper } from '../..';
 
 export const Certificates = (): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null);
   const shineRef = useRef<HTMLDivElement>(null);
-  const { state } = useCardLoadedContext();
+  const { state } = useInitalPageLoadedContext();
 
   useGSAP(
     () => {
@@ -73,18 +73,18 @@ export const Certificates = (): JSX.Element => {
       data-hero="certificates"
     >
       <div className="certificates flex h-full" ref={ref}>
-        <div className="w-[90%] h-full flex items-center text-default-accent">
+        <div className="w-[90%] h-full flex items-center text-[var(--accent)]">
           <div className="relative certificate-text">
             <p className="text-[20px] h-fit opacity-0">
               Browse my certificates
             </p>
-            <span className="h-full left-0 top-0 absolute z-10 bg-default-accent" />
+            <span className="h-full left-0 top-0 absolute z-10 bg-[var(--accent)]" />
           </div>
         </div>
         <div className="w-[10%] flex justify-end">
           <BsArrowUpRight
             size={20}
-            className="relative z-[1] cursor-pointer text-default-accent"
+            className="relative z-[1] cursor-pointer text-[var(--accent)]"
           />
         </div>
       </div>

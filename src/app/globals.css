@@ -2,20 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-canvas {
-  top: 0%;
-  bottom: 0%;
-  position: fixed !important;
-}
 
 :root {
-  --base: #ddd0ff;
-  --background: #070f2b;
-  --lighter: #081341;
+  --accent1: #ddd0ff;
+  --main1: #070f2b;
+  --sub1: #081341;
 
-  --base2: #e8e6e4;
-  --background2: #181a1c;
-  --lighter2: #282b2e;
+  --accent2: #e8e6e4;
+  --main2: #181a1c;
+  --sub2: #282b2e;
 }
 
 @font-face {
@@ -185,10 +180,6 @@ h1 div {
   100% {
     transform: rotate(0);
   }
-}
-.expertise .expertise_box p,
-.about_card p {
-  font-size: 29px !important;
 }
 .about_background {
   background-image: url('/images/4.png');

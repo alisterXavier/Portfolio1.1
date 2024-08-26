@@ -41,7 +41,7 @@ export const Socials = () => {
       }}
       href={href ?? undefined}
       className={mergeClassNames(
-        'socials mouse_card bg-default-sub-bg col-span-1 flex items-center justify-center cursor-pointer rounded-[5px] md:rounded-[10px]'
+        'socials mouse_card bg-[var(--sub)] col-span-1 flex items-center justify-center cursor-pointer rounded-[5px] md:rounded-[10px]'
       )}
       id={data}
       data-hero={data}
@@ -54,22 +54,22 @@ export const Socials = () => {
     <CardWrapper
       parentClasses="col-span-1 row-span-2 md:col-span-2 md:col-span-1 md:row-span-1"
       targetClass=""
-      className="socials__wrapper !bg-default-bg grid gap-2 grid-cols-1 md:grid-cols-2"
+      className="socials__wrapper !bg-[var(--main)] grid gap-2 grid-cols-1 md:grid-cols-2"
     >
       <ClickableItem data="discord">
-        <TbBrandDiscord size={20} className="text-default-accent" />
+        <TbBrandDiscord size={20} className="text-[var(--accent)]" />
       </ClickableItem>
       <ClickableItem href="mailto:xavieralister153@gmail.com" data="email">
-        <AiOutlineMail size={20} className="text-default-accent" />
+        <AiOutlineMail size={20} className="text-[var(--accent)]" />
       </ClickableItem>
       <ClickableItem href="https://github.com/alisterXavier" data="github">
-        <AiFillGithub size={20} className="text-default-accent" />
+        <AiFillGithub size={20} className="text-[var(--accent)]" />
       </ClickableItem>
       <ClickableItem
         href="https://www.linkedin.com/in/alister-xavier/"
         data="linkedin"
       >
-        <AiOutlineLinkedin size={20} className="text-default-accent" />
+        <AiOutlineLinkedin size={20} className="text-[var(--accent)]" />
       </ClickableItem>
     </CardWrapper>
   );

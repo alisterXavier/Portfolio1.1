@@ -1,5 +1,5 @@
-export { eventEmitter } from './events';
-export { mergeClassNames } from './classNames';
-export { Parallax } from './parallax';
 export * from './animation';
-export * from './hero';
+export { mergeClassNames } from './classNames';
+export * from './cards';
+export { ToolTip } from './tooltip';
+export { CardWrapper } from './cardwrapper';

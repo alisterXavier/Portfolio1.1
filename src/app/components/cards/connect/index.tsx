@@ -1,7 +1,7 @@
 import emailjs from '@emailjs/browser';
-import { ChangeEventHandler, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { BiRightArrowAlt } from 'react-icons/bi';
-import { CardWrapper } from '..';
+import { CardWrapper } from '../..';
 
 type TextArea = {
   type: string;
@@ -38,14 +38,14 @@ const MyTextArea = ({
   onChange,
   endContent,
 }: TextArea): JSX.Element => (
-  <div className="flex items-center justify-center bg-default-bg rounded-[10px] col-span-2 row-span-3 overflow-hidden">
+  <div className="flex items-center justify-center bg-[var(--main)] rounded-[10px] col-span-2 row-span-3 overflow-hidden">
     <textarea
       placeholder={label}
       name={name}
       value={value}
       onChange={onChange}
       className={
-        'text-default-accent p-4 h-full w-[90%] outline-none resize-none bg-default-bg'
+        'text-[var(--accent)] p-4 h-full w-[85%] outline-none resize-none bg-[var(--main)]'
       }
     />
     {endContent}
@@ -90,11 +90,11 @@ export const Connect = (): JSX.Element => {
       targetClass="connect"
       className={`hero_section !cursor-default p-5 flex flex-col items-center justify-center`}
     >
-      <h1 className="text-default-accent">
+      <h1 className="text-[var(--accent)]">
         Let&apos;s join forces to create something revolutionary!
       </h1>
       <form
-        className="relative bg-default-sub-bg w-[100%] h-[80%] transition-all justify-center flex flex-col duration-500"
+        className="relative bg-[var(--sub)] w-[100%] h-[80%] transition-all justify-center flex flex-col duration-500"
         onSubmit={handleClick}
         ref={ref}
       >
@@ -108,7 +108,7 @@ export const Connect = (): JSX.Element => {
               setName(e.target.value);
             }}
             classNames={
-              'text-default-accent bg-default-bg p-4 rounded-[10px] col-span-1 row-span-1 outline-none'
+              'text-[var(--accent)] bg-[var(--main)] p-4 rounded-[10px] col-span-1 row-span-1 outline-none'
             }
           />
           <MyTextInput
@@ -120,7 +120,7 @@ export const Connect = (): JSX.Element => {
               setEmail(e.target.value);
             }}
             classNames={
-              'text-default-accent bg-default-bg p-4 rounded-[10px] col-span-1 row-span-1 outline-none'
+              'text-[var(--accent)] bg-[var(--main)] p-4 rounded-[10px] col-span-1 row-span-1 outline-none'
             }
           />
           <MyTextArea
@@ -132,14 +132,14 @@ export const Connect = (): JSX.Element => {
               setMessage(e.target.value);
             }}
             endContent={
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden w-[8%]">
                 <input
                   type="submit"
                   className={'absolute z-[2] w-[25px] cursor-pointer opacity-0'}
                 />
                 <BiRightArrowAlt
                   size={25}
-                  className="relative z-[1] cursor-pointer text-default-accent"
+                  className="relative z-[1] cursor-pointer text-[var(--accent)]"
                 />
               </div>
             }

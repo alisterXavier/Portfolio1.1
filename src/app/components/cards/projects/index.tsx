@@ -1,14 +1,14 @@
-import { useCardContext, useCardLoadedContext } from '@/app/contexts';
-import Image from 'next/image';
-import { useMemo, useRef } from 'react';
-import { CardWrapper } from '..';
-import projects from '../../../../../public/assets/data/projects.json';
+import { useCardContext, useInitalPageLoadedContext } from '@/app/contexts';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import Image from 'next/image';
+import { useMemo, useRef } from 'react';
+import { CardWrapper } from '../..';
+import projects from '../../../../../public/assets/data/projects.json';
 
 export const Projects = (): JSX.Element => {
   const { state } = useCardContext();
-  const { state: cardsLoaded } = useCardLoadedContext();
+  const { state: cardsLoaded } = useInitalPageLoadedContext();
   const ref = useRef<HTMLDivElement | null>(null);
 
   const positions: { x: number; y: number }[] | any[] = useMemo(() => {
@@ -111,9 +111,9 @@ export const Projects = (): JSX.Element => {
       className={`hero_section flex items-center justify-center`}
       targetClass="projects"
     >
-      <div className="relative overflow-hidden w-[100%] h-[100%] transition-all duration-500 items-center justify-center flex cursor-pointer project__list__wrapper bg-default-sub-bg">
+      <div className="relative overflow-hidden w-[100%] h-[100%] transition-all duration-500 items-center justify-center flex cursor-pointer project__list__wrapper bg-[var(--sub)]">
         <div
-          className="absolute w-[1540px] project_list grid gap-[10px] grid-cols-5 project__list bg-default-sub-bg"
+          className="absolute w-[1540px] project_list grid gap-[10px] grid-cols-5 project__list bg-[var(--sub)]"
           ref={ref}
         >
           {projects.map((item, index) => {
@@ -129,7 +129,7 @@ export const Projects = (): JSX.Element => {
             ) : (
               <div className="relative w-full h-full project__item overflow-hidden flex items-center justify-center">
                 <div className="absolute h-full w-full overflow-hidden border-3 border-default-accent project__item__inner flex items-center justify-center">
-                  <p className="text-[20px] text-default-accent">¯\_(ツ)_/¯</p>
+                  <p className="text-[20px] text-[var(--accent)]">¯\_(ツ)_/¯</p>
                 </div>
               </div>
             );
