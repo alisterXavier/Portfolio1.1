@@ -1,12 +1,12 @@
 'use client';
 import { useCardContext } from '@/app/contexts';
 import { AnimatePresence, motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { ImCross } from 'react-icons/im';
 import { handleClick } from '../utils';
-import { useState } from 'react';
-import Image from 'next/image';
 
 const months = [
   'January',
@@ -70,55 +70,85 @@ const Certificates = () => {
 
   const certList = certs.map((item, index) => {
     return (
-      <div key={index} className="w-full h-[20%]">
-        <AnimatePresence mode="wait">
-          {selectedCert?.name == item.name && (
-            <motion.div className="w-[60%] h-full md:absolute z-[1] top-[0%] translate-x-[50%] duration-100 flex flex-col items-center justify-center">
-              <div className="w-[30%] h-[40%]">
-                <figure className="relative w-full h-[60%]">
-                  <Image
-                    src={item.image}
-                    alt=""
-                    objectFit="contain"
-                    sizes="100%"
-                    fill
-                  />
-                </figure>
-                <div className="w-full mt-5">
-                  <p>{selectedCert.name}</p>
-                  <p>{selectedCert.provider}</p>
-                  <p>
-                    {months[selectedCert.date.getMonth()]}{' '}
-                    {selectedCert.date.getFullYear()}
-                  </p>
-                  <a href={selectedCert.url} target='__blank' className='underline'>View Cert</a>
+      <>
+        <div key={index} className="w-full h-[20%] hidden md:block">
+          <AnimatePresence mode="wait">
+            {selectedCert?.name == item.name && (
+              <motion.div className="w-[60%] h-full md:absolute z-[1] top-[0%] translate-x-[50%] duration-100 flex flex-col items-center justify-center">
+                <div className="w-[30%] h-[40%]">
+                  <figure className="relative w-full h-[60%]">
+                    <Image
+                      src={item.image}
+                      alt=""
+                      objectFit="contain"
+                      sizes="100%"
+                      fill
+                    />
+                  </figure>
+                  <div className="w-full mt-5">
+                    <p>{selectedCert.name}</p>
+                    <p>{selectedCert.provider}</p>
+                    <p>
+                      {months[selectedCert.date.getMonth()]}{' '}
+                      {selectedCert.date.getFullYear()}
+                    </p>
+                    <Link
+                      href={selectedCert.url}
+                      target="__blank__"
+                      className="underline"
+                    >
+                      View Cert
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <div className="relative z-[2] cursor-pointer h-full w-[40%] flex items-center justify-center ">
-          <div
-            className=" w-[60%] h-[80%] border- flex flex-col justify-end items-end p-5 pr-2 hover:pr-0 border-b-2 brightness-75 hover:brightness-100 transition-all duration-100"
-            onMouseEnter={() => {
-              setSelectedCert(item);
-            }}
-          >
-            <p className="text-[20px]">{item.name}</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <div className="relative z-[2] cursor-pointer h-full w-[40%] flex items-center justify-center ">
+            <div
+              className=" w-[60%] h-[80%] border- flex flex-col justify-end items-end p-5 pr-2 hover:pr-0 border-b-2 brightness-75 hover:brightness-100 transition-all duration-100"
+              onMouseEnter={() => {
+                setSelectedCert(item);
+              }}
+            >
+              <p className="text-[20px]">{item.name}</p>
+            </div>
           </div>
         </div>
-      </div>
+        <div className="md:hidden w-full h-[300px] flex flex-col items-center justify-center p-5">
+          <div className="w-full h-full py-5 border-b border-[var(--accent)]">
+            <div className="w-full h-[50%]">
+              <figure className="relative w-full h-full">
+                <Image
+                  src={item.image}
+                  alt=""
+                  sizes="100%"
+                  fill
+                  objectFit="contain"
+                />
+              </figure>
+            </div>
+            <div className="w-full h-[50%] flex flex-col justify-end">
+              <p className='space-bold text-[20px]'>{item.name}</p>
+              <p className='text-[15px]'>{item.provider}</p>
+              <Link href={item.url} target="__blank__" className='text-[15px]'>
+                View Cert
+              </Link>
+            </div>
+          </div>
+        </div>
+      </>
     );
   });
 
   return (
-    <motion.div className="certificates_container bg-[var(--main)] h-screen w-screen text-[var(--accent)] flex items-center justify-start relative">
+    <motion.div className="certificates_container bg-[var(--main)] h-screen w-screen text-[var(--accent)] flex items-center justify-start relative p-5 md:p-0">
       <ImCross
         size={30}
         className="fixed z-[100] top-10 right-10"
         color="white"
         onClick={() => {
-          handleClick({ setState, targetClass, router });
+          handleClick({ router });
         }}
       />
       <div className="w-full h-full overflow-y-scroll relative bg-[var(--main)]">

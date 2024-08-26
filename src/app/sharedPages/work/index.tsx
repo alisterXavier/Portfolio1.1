@@ -143,7 +143,7 @@ const Work = () => {
           className="fixed z-[2100] top-10 right-[5%]"
           color="white"
           onClick={() => {
-            handleClick({ setState, targetClass, router });
+            handleClick({ router });
           }}
         />
         <div className="w-full h-full relative">

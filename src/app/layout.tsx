@@ -122,6 +122,7 @@ const Layout = ({
               scaleY: scaleY,
               borderRadius: '10px',
               background: 'var(--sub)',
+              ease: 'power3.out',
             }
           ).to(container, {
             autoAlpha: 0,
@@ -142,15 +143,7 @@ const Layout = ({
   return (
     <div className="relative bg-[var(--main)]">
       {props.children}
-      <motion.div
-        className="absolute z-[100] modal_container w-full min-h-screen top-0 bg-[var(--main)] !text-accent invisible origin-top-left"
-        animate={{
-          transition: {
-            duration: 0.5,
-            ease: 'expo.inOut',
-          },
-        }}
-      >
+      <motion.div className="absolute z-[100] modal_container w-full min-h-screen top-0 bg-[var(--main)] !text-accent invisible origin-top-left">
         {props.modal}
       </motion.div>
     </div>

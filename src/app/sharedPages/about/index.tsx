@@ -230,7 +230,7 @@ const About = () => {
           }}
           onClick={(e) => {
             e.preventDefault();
-            handleClick({ setState, targetClass, router });
+            handleClick({ router });
           }}
         />
         <div className="about_container horizontal bg-[var(--main)]">

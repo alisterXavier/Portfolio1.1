@@ -38,14 +38,14 @@ const MyTextArea = ({
   onChange,
   endContent,
 }: TextArea): JSX.Element => (
-  <div className="flex items-center justify-center bg-[var(--main)] rounded-[10px] col-span-2 row-span-3 overflow-hidden">
+  <div className="flex items-center justify-center w-full bg-[var(--main)] rounded-[10px] col-span-2 row-span-3 overflow-hidden">
     <textarea
       placeholder={label}
       name={name}
       value={value}
       onChange={onChange}
       className={
-        'text-[var(--accent)] p-4 h-full w-[85%] outline-none resize-none bg-[var(--main)]'
+        'text-[var(--accent)] p-4 h-full w-[80%] outline-none resize-none bg-[var(--main)]'
       }
     />
     {endContent}
@@ -132,10 +132,10 @@ export const Connect = (): JSX.Element => {
               setMessage(e.target.value);
             }}
             endContent={
-              <div className="relative overflow-hidden w-[8%]">
+              <div className="relative overflow-hidden w-[10%]">
                 <input
                   type="submit"
-                  className={'absolute z-[2] w-[25px] cursor-pointer opacity-0'}
+                  className={'absolute z-[2] w-[30px] cursor-pointer opacity-0'}
                 />
                 <BiRightArrowAlt
                   size={25}

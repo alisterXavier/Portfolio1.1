@@ -16,7 +16,13 @@ export type ProjectType = {
   img: string[];
 };
 
-const Project = ({ project }: { project: ProjectType }) => {
+const Project = ({
+  project,
+  index,
+}: {
+  project: ProjectType;
+  index: number;
+}) => {
   useGSAP(() => {
     const tl = gsap.timeline();
     tl.fromTo(
@@ -76,7 +82,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                 }}
                 staggerAmt={0.08}
                 duration={0.5}
-                delay={1.6}
+                delay={0.5}
                 styles={{
                   fontSize: 'text-[10px] md:text-[15px]',
                 }}
@@ -91,9 +97,9 @@ const Project = ({ project }: { project: ProjectType }) => {
                 }}
                 staggerAmt={0.08}
                 duration={0.5}
-                delay={1.6}
+                delay={0.5}
                 styles={{
-                  fontSize: 'text-[8px] md:text-[10px]',
+                  fontSize: 'text-[10px] md:text-[15px]',
                 }}
                 text={'Tech Stack:'}
               />
@@ -105,9 +111,9 @@ const Project = ({ project }: { project: ProjectType }) => {
                   }}
                   staggerAmt={0.08}
                   duration={0.5}
-                  delay={1.6}
+                  delay={0.5}
                   styles={{
-                    fontSize: 'text-[8px] md:text-[10px]',
+                    fontSize: 'text-[10px] md:text-[15px]',
                   }}
                   text={project.stack
                     .map((item, index) => {
@@ -130,9 +136,9 @@ const Project = ({ project }: { project: ProjectType }) => {
                   }}
                   staggerAmt={0.08}
                   duration={0.5}
-                  delay={1.6}
+                  delay={0.5}
                   styles={{
-                    fontSize: 'text-[8px] md:text-[10px]',
+                    fontSize: 'text-[10px] md:text-[15px]',
                   }}
                   text={'Github'}
                 />
@@ -141,7 +147,7 @@ const Project = ({ project }: { project: ProjectType }) => {
                 <Link
                   href={project.app_link}
                   target="__blank__"
-                  className="border-default-accent text-[15px] underline"
+                  className="border-default-accent underline"
                 >
                   <StaggerText
                     from={{
@@ -150,9 +156,9 @@ const Project = ({ project }: { project: ProjectType }) => {
                     }}
                     staggerAmt={0.08}
                     duration={0.5}
-                    delay={1.6}
+                    delay={0.5}
                     styles={{
-                      fontSize: 'text-[8px] md:text-[10px]',
+                      fontSize: 'text-[10px] md:text-[15px]',
                     }}
                     text={'App'}
                   />
@@ -165,7 +171,7 @@ const Project = ({ project }: { project: ProjectType }) => {
           <motion.div className="project__image w-full h-[70%] md:h-[50%]">
             <motion.figure
               className="relative w-full h-full project__item__inner overflow-hidden"
-              layoutId={project.title}
+              layoutId={project.title + index}
             >
               <Image
                 src={project.img[0]}
