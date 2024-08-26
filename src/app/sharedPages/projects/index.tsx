@@ -45,7 +45,9 @@ const Projects = () => {
   } {
     const targetArea = target.offsetHeight * target.offsetWidth;
     var collidingImages: any[] = [];
-
+    const project_item_inner = ref.current?.querySelectorAll(
+      '.project__item__inner'
+    );
     function animate(
       container: Element,
       image: Element,
@@ -86,7 +88,7 @@ const Projects = () => {
     }
 
     const startAnimation = () => {
-      gsap.to('.project__item__inner', {
+      gsap.to(project_item_inner!, {
         width: '95%',
         height: '95%',
         ease: 'expoScale(0.5,7,none)',
@@ -98,7 +100,7 @@ const Projects = () => {
     };
 
     const releaseAnimation = () => {
-      gsap.to('.project__item__inner', {
+      gsap.to(project_item_inner!, {
         width: '100%',
         height: '100%',
         ease: 'expoScale(0.5,7,none)',
@@ -247,7 +249,7 @@ const Projects = () => {
       <AnimatePresence>
         {toggleProject && (
           <motion.div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full z-[3]">
-            <Project project={toggleProject.item} index={toggleProject.index}/>
+            <Project project={toggleProject.item} index={toggleProject.index} />
             <motion.div
               className="fixed bg-[var(--main)] opacity-[0.6] top-0 left-0 w-screen h-screen z-[-1]"
               exit={{
